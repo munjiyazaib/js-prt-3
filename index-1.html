@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Name Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh;
+         margin: 50px;
+         background: linear-gradient(to bottom, #a8907b, #cfb29d, #f1d6be);
+
+
+
+     }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .color-box {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            border: 2px solid #000;
+        }
+        h1{
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Color Name Viewer</h1>
+    <input type="text" id="colorInput" placeholder="Enter color name (e.g., red)">
+    <button onclick="showColor()">Show Color</button>
+    <div id="colorBox" class="color-box"></div>
+    <p id="colorName"></p>
+
+    <script>
+        function showColor() {
+            let color = document.getElementById("colorInput").value.trim().toLowerCase();
+            let colorBox = document.getElementById("colorBox");
+            let colorName = document.getElementById("colorName");
+
+            let testDiv = document.createElement("div");
+            testDiv.style.backgroundColor = color;
+            if (testDiv.style.backgroundColor) {
+                colorBox.style.backgroundColor = color;
+                colorName.textContent = `Valid Color: ${color}`;
+            } else {
+                colorBox.style.backgroundColor = "white";
+                colorName.textContent = "Invalid color name";
+            }
+        }
+    </script>
+</body>
+
+</html>
